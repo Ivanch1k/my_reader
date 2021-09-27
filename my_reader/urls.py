@@ -19,5 +19,5 @@ from user_management.views import hello
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/', hello)
+    path('', hello)
 ]
