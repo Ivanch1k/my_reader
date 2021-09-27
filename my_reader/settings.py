@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=p!$fw!v47y+fgwj-$twwyj-(43t+42g1(axwnulrbkru-ppoo
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'wonderful-reader',
+    'wonderful-reader.herokuapp.com',
 ]
 
 
