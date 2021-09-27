@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework'
+    'rest_framework',
+    'user_management',
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +119,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+# Celery settings
+CELERY_BROKER_URL = 'amqp://guest:guest@rabbitmq:5672'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
