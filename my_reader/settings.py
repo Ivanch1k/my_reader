@@ -22,14 +22,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=p!$fw!v47y+fgwj-$twwyj-(43t+42g1(axwnulrbkru-ppoo'
 
+GITHUB_CLIENT_ID = 'c26c38f9f242f084571b'
+GITHUB_CLIENT_SECRET = 'MuJqZB4f01cMuwAhpuS1JJaFMQwticrhQNrVvfh3rWBRFWgiJdMQIw2uXUcBY43TY4er0e7kACNx9jTwfPe0elx3iwk4W6PDriYlNcxSkpYHf1rAzD9cFP8kqBRgfCRq'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     'wonderful-reader.herokuapp.com',
     '127.0.0.1',
+    'localhost'
 ]
 
+OAUTH2_PROVIDER = {
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Access to your groups'}
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
+}
 
 # Application definition
 
@@ -43,6 +59,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'user_management',
     'books',
+    'oauth',
+    'oauth2_provider',
 ]
 
 MIDDLEWARE = [
